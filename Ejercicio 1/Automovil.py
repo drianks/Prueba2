@@ -1,0 +1,12 @@
+from Vehiculo import Vehiculo
+
+class Automovil(Vehiculo):
+    def __init__(self, codigo, marca, modelo, año, rendimiento):
+        super().__init__(codigo, marca, modelo, año)
+        self.rendimiento = rendimiento
+
+    def tipo(self):
+        return "Auto"
+
+    def consumo(self, km):
+        return round(km / self.rendimiento, 2)
