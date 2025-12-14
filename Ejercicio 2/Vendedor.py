@@ -1,12 +1,10 @@
-class Empresa:
-    def __init__(self):
-        self.personal = []
+from Trabajador import Trabajador
 
-    def agregar(self, trabajador):
-        self.personal.append(trabajador)
+class Vendedor(Trabajador):
+    def __init__(self, nombre, rut, sueldo_base, ventas_mes, comision):
+        super().__init__(nombre, rut, sueldo_base)
+        self.ventas_mes = ventas_mes
+        self.comision = comision
 
-    def activos(self):
-        return [t for t in self.personal if t.activo]
-
-    def total_sueldos(self):
-        return sum(t.pago_final() for t in self.activos())
+    def pago_final(self):
+        return self.sueldo + (self.ventas_mes * self.comision)
